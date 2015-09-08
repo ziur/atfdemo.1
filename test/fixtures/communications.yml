@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  value: MyText
+  default: false
+  contact_id: 
+
+two:
+  type: 
+  value: MyText
+  default: false
+  contact_id: 
