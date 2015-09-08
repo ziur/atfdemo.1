@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contacts
+
   resources :notes
 
   devise_for :admin_users, ActiveAdmin::Devise.config
