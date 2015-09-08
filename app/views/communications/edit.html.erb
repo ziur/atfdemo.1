@@ -1,6 +1,5 @@
-<h1>Editing communication</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @communication %> |
-<%= link_to 'Back', communications_path %>
+<%- model_class = Communication -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Communication %></h1>
+</div>
+<%= render :partial => 'form' %>

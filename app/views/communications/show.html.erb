@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Communication -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Communication %></h1>
+</div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @communication.type %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:type) %></dt>
+      <dd><pre class="prettyprint"><%= @communication.type %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:value) %></dt>
+      <dd><pre class="prettyprint"><%= @communication.value %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:default) %></dt>
+      <dd><pre class="prettyprint"><%= @communication.default %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Value:</strong>
-  <%= @communication.value %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              communications_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_communication_path(@communication), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              communication_path(@communication),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Default:</strong>
-  <%= @communication.default %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @communication.contact %>
-</p>
-
-<%= link_to 'Edit', edit_communication_path(@communication) %> |
-<%= link_to 'Back', communications_path %>

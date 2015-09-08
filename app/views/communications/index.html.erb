@@ -1,31 +1,40 @@
-<h1>Listing communications</h1>
-
-<table>
+<%- model_class = Communication -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Communication %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Value</th>
-      <th>Default</th>
-      <th>Contact</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:value) %></th>
+      <th><%= model_class.human_attribute_name(:default) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @communications.each do |communication| %>
       <tr>
+        <td><%= communication.id %></td>
         <td><%= communication.type %></td>
         <td><%= communication.value %></td>
         <td><%= communication.default %></td>
-        <td><%= communication.contact %></td>
-        <td><%= link_to 'Show', communication %></td>
-        <td><%= link_to 'Edit', edit_communication_path(communication) %></td>
-        <td><%= link_to 'Destroy', communication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l communication.created_at, format: :long %></td>
+        <td>
+          <%= link_to communication_path(communication), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to communication_path(communication), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Communication', new_communication_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_communication_path,
+            :class => 'btn btn-primary' %>
