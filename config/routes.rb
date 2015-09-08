@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :communications
+
   resources :contacts
 
   resources :notes

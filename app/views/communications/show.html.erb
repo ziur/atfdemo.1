@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @communication.type %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @communication.value %>
+</p>
+
+<p>
+  <strong>Default:</strong>
+  <%= @communication.default %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @communication.contact %>
+</p>
+
+<%= link_to 'Edit', edit_communication_path(@communication) %> |
+<%= link_to 'Back', communications_path %>
