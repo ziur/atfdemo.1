@@ -1,4 +1,5 @@
 ActiveAdmin.register Communication do
+  permit_params :type, :value, :default
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
